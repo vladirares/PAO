@@ -5,7 +5,7 @@ public class User {
     private int id;
     private String nume;
     private String adresa;
-    private Date dataNasterii;
+    private Date dataNasterii = new Date();
 
     private ArrayList<Voucher> vouchere;
 
@@ -17,6 +17,21 @@ public class User {
 
     {
         id = ++nrUser;
+    }
+
+    User(){
+
+    }
+
+    User(String nume,String adresa){
+        this.nume = nume;
+        this.adresa = adresa;
+    }
+
+    User(String nume,String adresa, Date dataNasterii){
+        this.nume = nume;
+        this.adresa = adresa;
+        this.dataNasterii = dataNasterii;
     }
 
     public int getId() {
@@ -61,12 +76,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nume='" + nume + '\'' +
-                ", adresa='" + adresa + '\'' +
-                ", dataNasterii=" + dataNasterii +
-                '}';
+        return  "id=" + id + "\n" +
+                ", nume='" + nume + "\n" +
+                ", adresa='" + adresa + "\n" +
+                ", dataNasterii=" + dataNasterii+"\n";
     }
 
 

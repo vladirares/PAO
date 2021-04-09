@@ -1,7 +1,7 @@
 public abstract class Vehicul {
-    private final float coeficientViteza;
-    private final float coeficientVitezaOraDeVarf;
-    private final float coeficientConsum;
+    protected final float coeficientViteza;
+    protected final float coeficientVitezaOraDeVarf;
+    protected final float coeficientConsum;
     private boolean esteVehiculPersonal;
     private float incarcaturaMaxima;
 

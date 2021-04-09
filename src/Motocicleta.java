@@ -1,6 +1,11 @@
 public class Motocicleta extends Vehicul{
 
-    public Motocicleta(float coeficientViteza, float coeficientVitezaOraDeVarf, float coeficientConsum) {
-        super(coeficientViteza, coeficientVitezaOraDeVarf, coeficientConsum);
+    public Motocicleta() {
+        super(1f, 0.7f, 0.7f);
+    }
+
+    @Override
+    public String toString() {
+        return "Motocicleta";
     }
 }
