@@ -1,3 +1,5 @@
+package Aplicatie;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,16 +21,20 @@ public class User {
         id = ++nrUser;
     }
 
-    User(){
+    public User(){
 
     }
 
-    User(String nume,String adresa){
+    public User(String nume){
+        this.nume = nume;
+    }
+
+    public User(String nume,String adresa){
         this.nume = nume;
         this.adresa = adresa;
     }
 
-    User(String nume,String adresa, Date dataNasterii){
+    public User(String nume,String adresa, Date dataNasterii){
         this.nume = nume;
         this.adresa = adresa;
         this.dataNasterii = dataNasterii;

@@ -1,3 +1,5 @@
+package Aplicatie;
+
 public abstract class Vehicul {
     protected final float coeficientViteza;
     protected final float coeficientVitezaOraDeVarf;

@@ -1,16 +1,18 @@
+package Aplicatie;
+
 public class Bautura extends Produs {
     boolean esteAlcoolica;
     boolean esteCarbogazoasa;
 
-    Bautura(){
+    public Bautura(){
 
     }
 
-    Bautura(String nume){
+    public Bautura(String nume){
         this.nume = nume;
     }
 
-    Bautura(String nume, int greutate){
+    public Bautura(String nume, int greutate){
         this.nume = nume;
         this.greutate = greutate;
     }

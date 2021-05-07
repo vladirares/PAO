@@ -1,8 +1,10 @@
+package Aplicatie;
+
 import java.util.*;
 
 //8) platforma food delivery(localuri, comenzi, soferi, useri)
 public class Local {
-    private final int id;
+    private int id;
     private String nume;
     private Map<Produs,Float> produse = new HashMap<>();
     private static int nrLocal;
@@ -16,12 +18,16 @@ public class Local {
        produse = new HashMap<>();
     }
 
-    Local(){
+    public Local(){
 
     }
 
-    Local(String nume){
+    public Local(String nume){
         this.nume = nume;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

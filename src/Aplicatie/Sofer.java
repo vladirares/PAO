@@ -1,5 +1,7 @@
+package Aplicatie;
+
 public class Sofer {
-    private final int id;
+    private int id;
     private String nume;
     private Vehicul vehicul;
     private boolean esteLiber;
@@ -15,11 +17,20 @@ public class Sofer {
         esteLiber = true;
     }
 
-    Sofer(){
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Sofer(){
 
     }
 
-    Sofer(String nume, Vehicul vehicul){
+    public Sofer(String nume){
+        this.nume = nume;
+    }
+
+    public Sofer(String nume, Vehicul vehicul){
         this.nume = nume;
         this.vehicul = vehicul;
     }

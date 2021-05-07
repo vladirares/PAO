@@ -1,3 +1,5 @@
+package Aplicatie;
+
 public class Motocicleta extends Vehicul{
 
     public Motocicleta() {

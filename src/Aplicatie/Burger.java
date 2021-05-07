@@ -1,13 +1,15 @@
+package Aplicatie;
+
 public class Burger extends Produs {
-    Burger(){
+    public Burger(){
 
     }
 
-    Burger(String nume){
+    public Burger(String nume){
         this.nume = nume;
     }
 
-    Burger(String nume, int greutate){
+    public Burger(String nume, int greutate){
         this.nume = nume;
         this.greutate = greutate;
     }

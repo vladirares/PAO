@@ -1,10 +1,11 @@
-import java.text.ParseException;
+package Aplicatie;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Comanda {
-    private final int id;
+    private int id;
     private User user;
     private Sofer sofer;
     private Map<Produs,Float> produse = new HashMap<>();
@@ -19,14 +20,23 @@ public class Comanda {
         id = ++nrComanda;
     }
 
-    Comanda(){
+    public Comanda(){
 
     }
 
-    Comanda(User user, Sofer sofer, Map<Produs,Float> produse){
+    public Comanda(User user, Sofer sofer){
+        this.user = user;
+        this.sofer = sofer;
+    }
+
+    public Comanda(User user, Sofer sofer, Map<Produs,Float> produse){
         this.user = user;
         this.sofer = sofer;
         this.produse = produse;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {

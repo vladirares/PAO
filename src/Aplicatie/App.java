@@ -1,3 +1,7 @@
+package Aplicatie;
+
+import FileManager.Audit;
+
 import java.util.*;
 
 public class App {
@@ -21,21 +25,32 @@ public class App {
         return app;
     }
 
-    public void adaugaLocal(Local l){localuri.add(l);}
+    public void adaugaLocal(Local l){
+        localuri.add(l);
+        Audit.writeToAudit("adauga local");}
+
     public void stergeLocal(String numeLocal){
         localuri.removeIf(x -> x.getNume().equals(numeLocal));
+        Audit.writeToAudit("sterge local");
     }
     public void stergeLocal(int id){
         localuri.removeIf(x -> x.getId()==id);
+        Audit.writeToAudit("sterge local");
     }
 
-    public void adaugaSofer(Sofer s){soferi.add(s);}
+    public void adaugaSofer(Sofer s){soferi.add(s);
+        Audit.writeToAudit("adauga sofer");}
+
     public void stergeSofer(int id){
         soferi.removeIf(x -> x.getId()==id);
+        Audit.writeToAudit("sterge sofer");
     }
-    public void adaugaUser(User u){useri.add(u);}
+    public void adaugaUser(User u){useri.add(u);
+        Audit.writeToAudit("adauga user");}
+
     public void stergeUser(int id){
         useri.removeIf(x -> x.getId() == id);
+        Audit.writeToAudit("sterge user");
     }
 
     public Local getLocal(String numeLocal){
@@ -45,6 +60,10 @@ public class App {
             }
         }
         return null;
+    }
+
+    public List<Local> getLocaluri(){
+        return localuri;
     }
 
     public Local getLocal(int id){
@@ -73,24 +92,28 @@ public class App {
         for(Sofer sofer : soferi){
             System.out.println("\n"+sofer+"\n");
         }
+        Audit.writeToAudit("afiseaza soferi");
     }
 
     public void afiseazaLocaluri(){
         for(Local local : localuri){
             System.out.println("\n"+local+"\n");
         }
+        Audit.writeToAudit("afiseaza localuri");
     }
 
     public void afiseazaUseri(){
         for(User user : useri){
             System.out.println("\n"+user+"\n");
         }
+        Audit.writeToAudit("afiseaza uzeri");
     }
 
     public void afiseazaComenzi(){
         for(Comanda comanda : comenzi){
             System.out.println("\n"+comanda+"\n");
         }
+        Audit.writeToAudit("afiseaza comenzi");
     }
 
     public void afiseazaSoferiOcupati(){
@@ -100,6 +123,7 @@ public class App {
                 System.out.println(sofer);
             }
         }
+        Audit.writeToAudit("afiseaza soferi ocupati");
     }
 
     public void afiseazaLocaluriCuBauturiAlcoolice(){
@@ -115,6 +139,7 @@ public class App {
         for(Local x : l){
             System.out.println(x.getNume());
         }
+        Audit.writeToAudit("afiseaza localuri cu bauturi alcoolice");
     }
 
     public User getUser(int id){
@@ -124,6 +149,10 @@ public class App {
             }
         }
         return null;
+    }
+
+    public List<User> getUseri(){
+        return useri;
     }
 
     public List<User> getUseri(String nume){
@@ -138,6 +167,7 @@ public class App {
 
     public void adaugaComanda(Comanda c){
         comenzi.add(c);
+        Audit.writeToAudit("adauga comanda");
     }
 
     public Comanda getComanda(int id){
@@ -161,6 +191,10 @@ public class App {
             }
         }
         return comenziUser;
+    }
+
+    public List<Comanda> getComenzi(){
+        return comenzi;
     }
 
     public void asigneazaSofer(Comanda comanda) throws NoDriverException {
@@ -198,6 +232,7 @@ public class App {
             }
         }
 
+        Audit.writeToAudit("asigneaza sofer");
     }
 
 }

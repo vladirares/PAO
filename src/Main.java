@@ -1,8 +1,11 @@
-import java.lang.reflect.Array;
+import Aplicatie.*;
+import FileManager.Reader;
+import FileManager.Writer;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 import static java.lang.Math.round;
 
@@ -10,7 +13,46 @@ public class Main {
     public static void main(String []arg){
 
         App aplicatie = App.getApp();
+        initializare(aplicatie);
+        System.out.println(aplicatie.getComenzi());
+        testare(aplicatie);
 
+    }
+
+    public static void initializare(App app){
+        ArrayList<String[]> useri = Reader.getInstance().read(new User());
+        for(String[] user: useri){
+            User x = new User(user[1],user[2]);
+            x.setId(Integer.parseInt(user[0]));
+            app.adaugaUser(x);
+        }
+
+        ArrayList<String[]> soferi = Reader.getInstance().read(new Sofer());
+        for(String[] sofer: soferi){
+            Sofer x = new Sofer(sofer[1],(sofer[2].equals("Bicicleta"))?new Bicicleta(): sofer[2].equals("Masina")  ? new Masina() : new Motocicleta());
+            x.setId(Integer.parseInt(sofer[0]));
+            app.adaugaSofer(x);
+        }
+
+        ArrayList<String[]> localuri = Reader.getInstance().read(new Local());
+        for(String[] local: localuri){
+            Local x = new Local(local[1]);
+            x.setId(Integer.parseInt(local[0]));
+            app.adaugaLocal(x);
+        }
+
+        ArrayList<String[]> comenzi = Reader.getInstance().read(new Comanda());
+        for(String[] comanda: comenzi){
+            Comanda x = new Comanda(new User(comanda[1]), new Sofer(comanda[2]));
+            x.setId(Integer.parseInt(comanda[0]));
+            app.adaugaComanda(x);
+        }
+
+
+    }
+
+
+    public static void testare(App aplicatie){
         //1.adaugare sofer + afisare soferi + stergere sofer
         Sofer s1 = new Sofer();
         Sofer s2 = new Sofer();
@@ -135,6 +177,33 @@ public class Main {
         aplicatie.getLocal("KFC").adaugaProdus(bere,5);
         aplicatie.afiseazaLocaluriCuBauturiAlcoolice();
 
+        Reader reader = Reader.getInstance();
+//        reader.read(new Object());
+
+        Writer writer = Writer.getInstance();
+
+        aplicatie.adaugaUser(new User("Andrei Andreescu","Splaiul Unirii 32"));
+
+        writer.clear(System.getProperty("user.dir") + "\\src\\Useri.csv");
+        writer.clear(System.getProperty("user.dir") + "\\src\\Soferi.csv");
+        writer.clear(System.getProperty("user.dir") + "\\src\\Localuri.csv");
+        writer.clear(System.getProperty("user.dir") + "\\src\\Comenzi.csv");
+
+        for (User user : aplicatie.getUseri()){
+            writer.write(user);
+        }
+
+        for (Sofer sofer : aplicatie.getSoferi()){
+            writer.write(sofer);
+        }
+
+        for (Local local : aplicatie.getLocaluri()){
+            writer.write(local);
+        }
+
+        for (Comanda comanda : aplicatie.getComenzi()){
+            writer.write(comanda);
+        }
     }
 
 

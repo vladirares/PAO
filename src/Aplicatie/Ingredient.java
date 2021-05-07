@@ -1,24 +1,24 @@
-import static java.lang.Math.*;
+package Aplicatie;
 
 public class Ingredient implements Comparable<Ingredient> {
     private String nume;
     private float cantitate;
     private float pretBucata;
 
-    Ingredient(){
+    public Ingredient(){
 
     }
 
-    Ingredient(String nume){
+    public Ingredient(String nume){
         this.nume = nume;
     }
 
-    Ingredient(String nume, float cantitate){
+    public Ingredient(String nume, float cantitate){
         this.nume = nume;
         this.cantitate = cantitate;
     }
 
-    Ingredient(String nume, float cantitate, float pretBucata){
+    public Ingredient(String nume, float cantitate, float pretBucata){
         this.nume = nume;
         this.cantitate = cantitate;
         this.pretBucata = pretBucata;
