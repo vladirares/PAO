@@ -33,23 +33,13 @@ public class Reader implements RW<Object> {
 
     @Override
     public ArrayList<String[]> read(Object obj) {
-        String path = System.getProperty("user.dir") + "\\src\\Useri.csv";
-
-        switch (obj.getClass().getSimpleName()){
-            case "User":
-                path = System.getProperty("user.dir") + "\\src\\Useri.csv";
-                break;
-            case "Local":
-                path = System.getProperty("user.dir") + "\\src\\Localuri.csv";
-                break;
-            case "Comanda":
-                path = System.getProperty("user.dir") + "\\src\\Comenzi.csv";
-                break;
-            case "Sofer":
-                path = System.getProperty("user.dir") + "\\src\\Soferi.csv";
-                break;
-            default:
-        }
+        String path = switch (obj.getClass().getSimpleName()) {
+            case "User" -> System.getProperty("user.dir") + "\\src\\Useri.csv";
+            case "Local" -> System.getProperty("user.dir") + "\\src\\Localuri.csv";
+            case "Comanda" -> System.getProperty("user.dir") + "\\src\\Comenzi.csv";
+            case "Sofer" -> System.getProperty("user.dir") + "\\src\\Soferi.csv";
+            default -> System.getProperty("user.dir") + "\\src\\Useri.csv";
+        };
 
         try {
             return readFromFile(path);

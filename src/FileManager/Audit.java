@@ -13,7 +13,7 @@ public class Audit {
         FileWriter csvWriter = null;
         try {
             csvWriter = new FileWriter(path,true);
-            csvWriter.append(nume + ",");
+            csvWriter.append("Thread:"+Thread.currentThread().getName()+","+ nume + ",");
             csvWriter.append(LocalDateTime.now().toString()+"\n");
             csvWriter.flush();
             csvWriter.close();
