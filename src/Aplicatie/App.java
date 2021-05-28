@@ -211,6 +211,7 @@ public class App {
                                     sofer.getVehicul() instanceof Bicicleta ) ){
                         sofer.setEsteLiber(false);
                         comanda.setSofer(sofer);
+                        break;
                     }else if(sofer.getEsteLiber()){
                         comanda.setSofer(sofer);
                     }
